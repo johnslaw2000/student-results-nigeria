@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Check Your Result</h2>
+
+<form method="POST" class="result-form">
+    <p>
+        <label>Enter Your Student ID</label>
+        <input type="text" name="student_id"
+               placeholder="e.g. STU001" required>
+    </p>
+    <button type="submit" class="btn btn-primary">Check Result</button>
+</form>
+
+{% if error %}
+<div class="error-msg">
+    <p>❌ {{ error }}</p>
+</div>
+{% endif %}
+
+{% if results %}
+<div class="results-container">
+    <h3>Results Found! 🎉</h3>
+    <p><strong>Student:</strong> {{ results[0][0] }}</p>
+    <table>
+        <tr>
+            <th>Subject</th>
+            <th>Score</th>
+            <th>Grade</th>
+            <th>Term</th>
+            <th>Year</th>
+            <th>Status</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{ row[1] }}</td>
+            <td>{{ row[2] }}%</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td>
+                {% if row[3] in ['A', 'B', 'C'] %}
+                <span class="pass">✅ Pass</span>
+                {% else %}
+                <span class="fail">❌ Fail</span>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endif %}
+{% endblock %}

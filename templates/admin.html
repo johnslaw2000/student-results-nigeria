@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Admin Portal — Add Result</h2>
+
+{% if success %}
+<div class="success-msg">
+    <p>✅ {{ success }}</p>
+</div>
+{% endif %}
+
+<form method="POST" class="result-form">
+    <p>
+        <label>Student ID</label>
+        <input type="text" name="student_id"
+               placeholder="e.g. STU001" required>
+    </p>
+    <p>
+        <label>Student Name</label>
+        <input type="text" name="name"
+               placeholder="e.g. Chukwuemeka Okafor" required>
+    </p>
+    <p>
+        <label>Subject</label>
+        <input type="text" name="subject"
+               placeholder="e.g. Mathematics" required>
+    </p>
+    <p>
+        <label>Score (0-100)</label>
+        <input type="number" name="score"
+               min="0" max="100" required>
+    </p>
+    <p>
+        <label>Term</label>
+        <select name="term">
+            <option value="First Term">First Term</option>
+            <option value="Second Term">Second Term</option>
+            <option value="Third Term">Third Term</option>
+        </select>
+    </p>
+    <p>
+        <label>Year</label>
+        <input type="text" name="year"
+               placeholder="e.g. 2025/2026" required>
+    </p>
+    <button type="submit" class="btn btn-primary">Add Result</button>
+</form>
+{% endblock %}

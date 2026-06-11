@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="hero">
+    <h2>Welcome to Nigerian Student Result Checker</h2>
+    <p>Check your exam results quickly and easily!</p>
+    <div class="hero-buttons">
+        <a href="/check" class="btn btn-primary">Check My Result</a>
+        <a href="/admin" class="btn btn-secondary">Admin Portal</a>
+    </div>
+</div>
+
+<div class="features">
+    <div class="feature-card">
+        <h3>📋 Check Results</h3>
+        <p>Enter your Student ID to see all your results!</p>
+    </div>
+    <div class="feature-card">
+        <h3>📊 See Grades</h3>
+        <p>View your scores and grades for every subject!</p>
+    </div>
+    <div class="feature-card">
+        <h3>🏆 Track Progress</h3>
+        <p>See results across different terms and years!</p>
+    </div>
+</div>
+{% endblock %}
