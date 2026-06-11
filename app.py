@@ -4,6 +4,10 @@ import os
 
 app = Flask(__name__)
 
+from prometheus_flask_exporter import PrometheusMetrics
+metrics = PrometheusMetrics(app)
+
+
 def get_db_connection():
     conn = psycopg2.connect(
         dbname=os.environ.get("DB_NAME", "studentresults"),
