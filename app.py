@@ -10,9 +10,9 @@ metrics = PrometheusMetrics(app)
 
 def get_db_connection():
     conn = psycopg2.connect(
-        dbname=os.environ.get("DB_NAME", "studentresults"),
-        user=os.environ.get("DB_USER", "studentuser"),
-        password=os.environ.get("DB_PASS", "studentpass"),
+        dbname=os.environ["DB_NAME"],
+        user=os.environ["DB_USER"],
+        password=os.environ["DB_PASS"],
         host=os.environ.get("DB_HOST", "db")
     )
     return conn
